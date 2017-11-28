@@ -1,22 +1,40 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { View, Text, Button } from 'react-native';
-import { setStart, thunkAction } from './actions/actions';
+import { View, Text } from 'react-native';
+import { Button } from 'react-native-elements';
+import styles from '../styles/styles';
 
 class Home extends Component {
-  onTextChange = () => {
-    this.props.thunkAction();
-    this.props.navigation.navigate('Dashboard');
+  onFetch = () => {
+    this.props.getData();
+  };
+
+  onDelete = () => {
+    this.props.deleteData();
+  };
+
+  onUpdate = () => {
+    this.props.updateData();
+  };
+
+  onDispatchFetch = () => {
+    this.props.getDataDispatch();
   };
   render() {
-    console.log('PROOP', this.props);
     return (
       <View>
         <Text>This is the Home Component</Text>
-        <Button title="Press me" onPress={() => this.onTextChange()} />
+        <View style={styles.button}>
+          <Button title="One" onPress={() => this.onFetch()} />
+        </View>
+        <View style={styles.button}>
+          <Button title="Two" onPress={() => this.onDelete()} />
+        </View>
+        <View style={styles.button}>
+          <Button title="Three" onPress={() => this.onUpdate()} />
+        </View>
       </View>
     );
   }
 }
 
-export default connect(null, { setStart, thunkAction })(Home);
+export default Home;

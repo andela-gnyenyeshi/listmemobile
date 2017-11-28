@@ -1,5 +1,5 @@
 import Dashboard from '../views/Dashboard/components/Dashboard';
-import Home from '../views/Home/components/Home';
+import Home from '../views/Home/container/HomeContainer';
 
 const AppRoutes = {
   Home: { screen: Home },
